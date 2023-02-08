@@ -12,7 +12,6 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
 	// Root - Show all products
 	index: (req, res) => {
-		// Do the magic
 
 		res.render("products",{
 			products,
@@ -22,7 +21,6 @@ const controller = {
 
 	// Detail - Detail from one product
 	detail: (req, res) => {
-		// Do the magic
 		let productId = Number(req.params.id);
 		let product = products.find(product => product.id === productId);
 
@@ -35,13 +33,11 @@ const controller = {
 
 	// Create - Form to create
 	create: (req, res) => {
-		// Do the magic
 		res.render("product-create-form");
 	},
 	
 	// Create -  Method to store
 	store: (req, res) => {
-		// Do the magic
 		let lastId = products[products.length - 1].id;
 
 		let newProduct ={
@@ -104,10 +100,10 @@ const controller = {
 		/* let newProductArray = products.filter(produc => prodict.id !== productId) */
         //writeJson(newProductsArray)
 		
-		// retorno un mensaje de exito
+		// Mensaje producto destruido
         res.send("El producto fue destruido")
 		writeJson(products);
-		res.send('Producto fue eleminado correctamente');
+		res.send('El producto fue eliminado con exito');
 	}
 };
 
