@@ -49,6 +49,7 @@ const controller = {
 			description: req.body.description,
 			image: "default-image.png",
 		}
+
 		products.push(newProduct);
 		writeJson(products);
 		res.redirect('/products');
@@ -58,7 +59,6 @@ const controller = {
 
 	// Update - Form to edit
 	edit: (req, res) => {
-		// Do the magic
 		let productId = Number( req.params.id);
 
 		let productToEdit = products.find(product => product.id === productId);
@@ -68,7 +68,6 @@ const controller = {
 	},
 	// Update - Method to update
 	update: (req, res) => {
-		// Do the magic
 		let productId = Number( req.params.id);
 		
 		products.forEach(product => {
@@ -81,13 +80,12 @@ const controller = {
 			}
 		}); 
 		writeJson(products);
-		res.send('Producto mod correctamente');
+		res.send('Se modificó con exito su producto!');
 		
 	},
 
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
-		// Do the magic
 		let productId = Number( req.params.id);
 		products.forEach(product => {
 			if (product.id === productId){
@@ -96,11 +94,8 @@ const controller = {
 				products.splice(productToDestroy,1)
 			}
 		}); 
-
-		/* let newProductArray = products.filter(produc => prodict.id !== productId) */
-        //writeJson(newProductsArray)
 		
-		// Mensaje producto destruido
+		// Mensaje para producto destruido:
         res.send("El producto fue destruido")
 		writeJson(products);
 		res.send('El producto fue eliminado con exito');
